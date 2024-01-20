@@ -1,0 +1,3 @@
+
+cd ./../cw-plus/artifacts && INIT=$(jq -n '{"name":"MashToken","symbol":"MSH","decimals":6,"initial_balances":[{address:"(自分のアドレス)",amount:"10000000"}]}')
+neutrond tx wasm instantiate 2641 "$INIT" --label "MashToken" --admin neutron1u55r4sujtgmwek6kp5p46gkwkznytrycrcxakl --from neutron1u55r4sujtgmwek6kp5p46gkwkznytrycrcxakl --node https://rpc-t.neutron.nodestake.top:443 --chain-id pion-1 --gas-prices 0.1untrn --gas auto --gas-adjustment 2.0

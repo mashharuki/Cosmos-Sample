@@ -156,6 +156,78 @@ Cosmos 内の DeFi 用スマートコントラクトのためのブロックチ�
   └── cw4_stake-aarch64.wasm
   ```
 
+- コントラクトをテストネットにアップロードする
+
+  ```bash
+  cd artifacts && neutrond tx wasm store cw20_base-aarch64.wasm --from neutron1u55r4sujtgmwek6kp5p46gkwkznytrycrcxakl --node https://rpc-t.neutron.nodestake.top:443 --chain-id pion-1 --gas-prices 0.1untrn --gas auto --gas-adjustment 2.0
+  ```
+
+  実行結果
+
+  ```bash
+  gas_wanted: "0"
+  height: "0"
+  info: ""
+  logs: []
+  raw_log: '[]'
+  timestamp: ""
+  tx: null
+  txhash: 50FD50CF30E2C5DDA13771FB79975C1491F7218E9DEB8B4C0B4E4CBDDF213C95
+  ```
+
+  エクスプローラーで確認ができる
+
+  [2641](https://neutron.celat.one/pion-1/codes/2641/info)
+
+- コントラクトの初期化
+
+  ```bash
+  INIT=$(jq -n '{"name":"MashToken","symbol":"MSH","decimals":6,"initial_balances":[{address:"neutron1u55r4sujtgmwek6kp5p46gkwkznytrycrcxakl",amount:"10000000"}]}')
+  neutrond tx wasm instantiate 2641 "$INIT" --label "MashToken" --admin neutron1u55r4sujtgmwek6kp5p46gkwkznytrycrcxakl --from neutron1u55r4sujtgmwek6kp5p46gkwkznytrycrcxakl --node https://rpc-t.neutron.nodestake.top:443 --chain-id pion-1 --gas-prices 0.1untrn --gas auto --gas-adjustment 2.0
+  ```
+
+  エクスプローラー上
+
+  [トークン発行のトランザクション](https://neutron.celat.one/pion-1/txs/A74AE8F7CCA7B92E733672C3C6473A2353FFAEE92F7ABE3A1201994E4D798815)
+
+- CW20 のトークンの残高確認＆送金
+
+  ```bash
+  BALANCE=$(jq -n '{"balance":{"address": "neutron1u55r4sujtgmwek6kp5p46gkwkznytrycrcxakl"}}')
+  neutrond query wasm contract-state smart neutron1j9uvp68q6cyh7t7ywm2e5t6h52888sgfjeut84xhu8xvv8epx7tsmxc0lk "$BALANCE" --node https://rpc-t.neutron.nodestake.top:443 --chain-id pion-1
+  ```
+
+  実行結果
+
+  ```bash
+  data:
+    balance: "10000000"
+  ```
+
+  次に送金する
+
+  ```bash
+  EXECUTE=$(jq -n '{"transfer":{"recipient": "neutron1k8p8qmvjdncykck85awtezldsx07p97pkjxyms", "amount": "1000"}}')
+  neutrond tx wasm execute neutron1j9uvp68q6cyh7t7ywm2e5t6h52888sgfjeut84xhu8xvv8epx7tsmxc0lk "$EXECUTE" --from neutron1u55r4sujtgmwek6kp5p46gkwkznytrycrcxakl --node https://rpc-t.neutron.nodestake.top:443 --chain-id pion-1 --gas-prices 0.1untrn --gas auto --gas-adjustment 2.0
+  ```
+
+  [送金した時のトランザクション](https://neutron.celat.one/pion-1/txs/FFB13F97E89EA16FCBDF14FC7C459103C78FE18C685EB1F6F69ED06C5E9421A4)
+
+  送金後の残高を確認
+
+  ```bash
+  BALANCE=$(jq -n '{"balance":{"address": "neutron1u55r4sujtgmwek6kp5p46gkwkznytrycrcxakl"}}')
+  BALANCE=$(jq -n '{"balance":{"address": "neutron1k8p8qmvjdncykck85awtezldsx07p97pkjxyms"}}')
+  neutrond query wasm contract-state smart neutron1j9uvp68q6cyh7t7ywm2e5t6h52888sgfjeut84xhu8xvv8epx7tsmxc0lk "$BALANCE" --node https://rpc-t.neutron.nodestake.top:443 --chain-id pion-1
+  ```
+
+  結果
+
+  ```bash
+  data:
+    balance: "9999000"
+  ```
+
 ### Faucet のもらい方
 
 公式 Discord のチャンネルからもらう
