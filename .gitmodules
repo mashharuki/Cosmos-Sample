@@ -1,3 +1,6 @@
 [submodule "cw-plus"]
 	path = cw-plus
 	url = https://github.com/CosmWasm/cw-plus.git
+[submodule "cosmjs-sandbox"]
+	path = cosmjs-sandbox
+	url = https://github.com/mashharuki/cosmjs-sandbox.git
