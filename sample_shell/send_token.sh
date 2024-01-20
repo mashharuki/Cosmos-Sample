@@ -1,0 +1,1 @@
+neutrond tx bank send neutron1u55r4sujtgmwek6kp5p46gkwkznytrycrcxakl neutron1k8p8qmvjdncykck85awtezldsx07p97pkjxyms 100untrn --node https://rpc-t.neutron.nodestake.top:443 --chain-id pion-1 --gas-prices 0.1untrn --gas auto --gas-adjustment 2.0

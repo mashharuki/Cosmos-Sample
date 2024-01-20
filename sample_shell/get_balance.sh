@@ -1,0 +1,1 @@
+neutrond q bank balances neutron1u55r4sujtgmwek6kp5p46gkwkznytrycrcxakl --node https://rpc-t.neutron.nodestake.top:443 --chain-id pion-1
