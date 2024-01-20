@@ -111,6 +111,51 @@ Cosmos 内の DeFi 用スマートコントラクトのためのブロックチ�
 
   [送金トランザクション](https://neutron.celat.one/pion-1/txs/CC24FB37660BA408B6448314E054C9DC26B908262ED224CFC3B045500A3F8684)
 
+- コントラクトのコンパイル
+
+  ```bash
+  cd cw-plus
+  ```
+
+  docker desktop を起動しておくこと！！
+
+  ```bash
+  docker run --rm -v "$(pwd)":/code \
+    --mount type=volume,source="$(basename "$(pwd)")_cache",target=/target \
+    --mount type=volume,source=registry_cache,target=/usr/local/cargo/registry \
+    cosmwasm/optimizer-arm64:0.15.0
+  ```
+
+  実行結果
+
+  ```bash
+  Post-processing artifacts...
+  e5f144698186b41aa4b368378e73cf1c23af548f95815b7a762a410e89954613  cw1_subkeys-aarch64.wasm
+  76520bb8618ad1c998ff7b74139fa4b717bab5c504567e10213e726b301709e4  cw1_whitelist-aarch64.wasm
+  99dd01d322ca6eaf32f8c88f547068d2a7b85c1adb6da74aa5bb793b0e23042d  cw20_base-aarch64.wasm
+  ef27a1b027f97b6d02d812e4123ac5deb06f21e798492ada345561720e88e1d9  cw20_ics20-aarch64.wasm
+  30ecf9980b26c2f1de07b0b2759f8ac5b24aabe2ab1e8063eb94eae78bab1613  cw3_fixed_multisig-aarch64.wasm
+  a447c9cdccaaac3785d75f1c5153ad443cd61caefbd6b435854cf413b4d22b6c  cw3_flex_multisig-aarch64.wasm
+  21f70f74493f1db5c80e5e4ec949e3ebe632774428a53ed6d60e22a76167bc03  cw4_group-aarch64.wasm
+  e880c511a1f4b7bbae908c5a4432c581af40668b4242c9caa438230888b39f57  cw4_stake-aarch64.wasm
+  done
+  ```
+
+  `artifacts`フォルダに成果物がある。
+
+  ```bash
+  ./artifacts
+  ├── checksums.txt
+  ├── cw1_subkeys-aarch64.wasm
+  ├── cw1_whitelist-aarch64.wasm
+  ├── cw20_base-aarch64.wasm
+  ├── cw20_ics20-aarch64.wasm
+  ├── cw3_fixed_multisig-aarch64.wasm
+  ├── cw3_flex_multisig-aarch64.wasm
+  ├── cw4_group-aarch64.wasm
+  └── cw4_stake-aarch64.wasm
+  ```
+
 ### Faucet のもらい方
 
 公式 Discord のチャンネルからもらう
