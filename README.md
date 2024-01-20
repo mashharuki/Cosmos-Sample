@@ -8,7 +8,7 @@ Cosmos 上のスマートコントラクトプラットフォーム『CosmWasm�
 
 Cosmos 内の DeFi 用スマートコントラクトのためのブロックチェーン
 
-##　コマンド系
+## コマンド系
 
 - CLI のインストール
 
@@ -241,7 +241,7 @@ Cosmos 内の DeFi 用スマートコントラクトのためのブロックチ�
 3. [​Cosmos 系ブロックチェーン上の送金をプログラムで実行してみよう！CosmJS の使い方を解説！](https://lab.stir.network/cosmjs-1/)
 4. [Cosmos のスマコン開発を始めてみよう！！](https://docs.google.com/presentation/d/1W2NV09ARA4nD4PvXmpOKRe0e7sETsPBFke_PlDOxKio/edit?usp=sharing)
 5. [​Neutron 公式サイト](​https://www.neutron.org/)
-6. [​Neutron Testnet エクスプローラ](​https://testnet.mintscan.io/neutron-testnet)
+6. [​Neutron Testnet エクスプローラー](​https://testnet.mintscan.io/neutron-testnet)
 7. [2024/01/20 Cosmos のスマコン開発を始めてみよう！！](https://cosmosjapan.notion.site/2024-01-20-Cosmos-910ed6d9d07d4f54aa881cb22f4ad120)
 8. [GitHub - Neutron](https://github.com/neutron-org/neutron/tree/303d764b57d871749fcf7d59a67b5d3078779258)
 9. [Neutron 公式 Build ガイド](https://docs.neutron.org/neutron/build-and-run/neutron-build)
