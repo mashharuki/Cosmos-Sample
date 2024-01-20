@@ -248,3 +248,5 @@ Cosmos 内の DeFi 用スマートコントラクトのためのブロックチ�
 10. [エクスプローラーでのページ](https://neutron.celat.one/pion-1/accounts/neutron1u55r4sujtgmwek6kp5p46gkwkznytrycrcxakl/overview)
 11. [GitHub - cw-plus のリポジトリ](https://github.com/CosmWasm/cw-plus)
 12. [GitHub CosmJs Sandbox のリポジトリ](https://github.com/mashharuki/cosmjs-sandbox)
+13. [Building a Cosmos App Frontend with create-cosmos-app and Keplr Wallet Integration](https://medium.com/@cryptogrowthmarketer/building-a-cosmos-app-frontend-with-create-cosmos-app-and-keplr-wallet-integration-66c3503a0035)
+14. [npm - create-cosmos-app](https://www.npmjs.com/package/create-cosmos-app)
